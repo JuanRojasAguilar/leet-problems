@@ -4,8 +4,28 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-	for (let i = 0; i < nums.length; i++) {
-		let respuesta = nums[i] + nums[i + 1];
-		if (respuesta == target) return [i, i + 1];
+	// Mi solución
+	for (var i = 0; i < nums.length; i++)
+	{
+		for (let j = i + 1; j < nums.length; j++)
+		{
+			let sum = nums[i] + nums[j]
+			if (sum == target)
+			{
+				return [i, j];
+			}
+		}
 	}
-};
+
+// Solucion Chat gpt, aún estudiandola
+// 	const numIndices = {};
+
+// 	for (let i = 0; i < nums.length; i++) {
+// 		const complement = target - nums[i];
+// 		if (complement in numIndices) return [numIndices[complement], i];
+// 		numIndices[nums[i]] = i;
+// 	}
+// 	return null;
+// };
+}
+console.log(twoSum([0, 4, 3, 0], 0));
